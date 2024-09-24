@@ -1,0 +1,358 @@
+/* Foundation */
+@font-face {
+  font-family: "Zen Maru Gothic";
+  src:
+    url("WebSubsetZenMaruGothic-Medium.woff") format("woff"),
+    url("WebSubsetZenMaruGothic-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Ephesis";
+  src:
+    url("WebfontEphesis-Regular.woff") format("woff");
+}
+:root {
+  --base-color: #F1F9ED;
+  --main-color: #88A640;
+  --accent-color: #FFF967;
+  --font-main-color: #2F2F2F;
+  --font-sub-color: #D9D9D9;
+  --white-color: #fff;
+}
+body{
+  font-family: "Zen Maru Gothic", serif, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: var(--font-main-color);
+}
+.title_font{
+  font-family: "Ephesis", "Helvetica Neue", cursive, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100px;
+  mix-blend-mode: color-burn;
+}
+h1{
+  font-size: 40px;
+  font-weight: 600;
+}
+h2{
+  font-size: 35px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+h3{
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 600;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, var(--main-color) 0%, var(--main-color) 30%, var(--accent-color) 30%, var(--accent-color) 100%) 1;
+}
+h4{
+  font-size: 25px;
+  font-weight: 600;
+}
+a{
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--font-main-color);
+  transition: .4s;
+}
+@media (any-hover: hover) {
+  a:hover {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    transition: .2s;
+  }
+}
+ul li::before{
+  content: "・";
+  font-weight: 600;
+  color: var(--main-color);
+}
+iframe{
+  border-radius: 20px;
+  max-width: 100%;
+}
+img{
+  max-width: 100%;
+  /* border-radius: 20px; */
+}
+p{
+  margin-top: .6rem;
+}
+/* Layout */
+.l-bg{
+  background: url("../img/bg.jpg") repeat;
+  background-color: var(--base-color);;
+}
+.l-text_center{
+  text-align: center;
+}
+.l-svg_center{
+  display: inline-block;
+  margin: 0 auto;
+}
+.l-block_center{
+  margin: 0 auto;
+}
+.l-margin_top{
+  margin-top: 80px;
+}
+.l-margin_top_2rem{
+  margin-top: 2rem;
+}
+.l-max500{
+  margin-top: 2rem;
+  max-width: 500px;
+}
+.l-max800{
+  margin-top: 2rem;
+  max-width: 800px;
+}
+
+/* Object/Component */
+.c-button{
+  display: inline-block;
+  position: relative;
+  border-bottom: none;
+  padding: 1rem 2.3rem;
+}
+.c-button::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: url("../img/ellipse.svg");
+  z-index: -1;
+  transition: 1.2s cubic-bezier(0.75, -1.5, 0.25, 2.4);
+  transform: scale(1);
+}
+.c-button::after{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-left: .6rem;
+  content: url("../img/arrow.svg");
+  transition: .8s cubic-bezier(0.75, -1.5, 0.25, 2.4);
+  transform: translateY(-50%) translateX(-50%);
+}
+@media (any-hover: hover) {
+  .c-button:hover {
+    color: inherit;
+    border-bottom: none;
+  }
+  .c-button:hover::before {
+    transform-origin: 50% 50%;
+    transition: 1.2s cubic-bezier(0.75, -2.5, 0.25, 2.4);
+		transform: scale(1.21);
+  }
+  .c-button:hover::after {
+    transition: .8s cubic-bezier(0.75, -2.5, 0.25, 2.4);
+    transform: translateY(-50%) translateX(0);
+  }
+}
+.c-box{
+  background-color: var(--white-color);
+  max-width: 100%;
+  padding: 2rem;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  border-radius: 20px;
+  box-shadow: 20px 18px #FFF967;
+}
+.c-quote{
+  position: relative;
+  background-color: var(--white-color);
+  padding: 2rem;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
+.c-quote::before{
+  content: url("../img/quotation.svg");
+  position: absolute;
+  top: -20px;
+  left: 30px;
+}
+.c-quote::after{
+  content: url("../img/quotation.svg");
+  transform: rotate(0.5turn);
+  position: absolute;
+  bottom: -20px;
+  right: 30px;
+}
+.c-guide{
+  position: relative;
+  background-color: var(--white-color);
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  padding: 2rem .8rem;
+  border-radius: 20px;
+  border: 3px solid var(--main-color);
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.c-guide .c-guide_title{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 25px;
+  font-weight: 400;
+  background-color: var(--white-color);
+  color: var(--main-color);
+  transform: translateX(-50%) translateY(-50%);
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  clip-path: inset(0 99px 0 99px);
+}
+.c-guide .c-guide_title::before{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  background-color: var(--main-color);
+  width: 3px;
+  height: 42px;
+}
+.c-guide .c-guide_title::after{
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  content: "";
+  background-color: var(--main-color);
+  width: 3px;
+  height: 42px;
+}
+
+.c-guide.is-active{
+  animation:1.4s linear guide_shadow both;
+}
+.c-guide.is-active .c-guide_title{
+  animation:1s cubic-bezier(0.215, 0.61, 0.355, 1) open_guide both;
+}
+.c-guide.is-active .c-guide_title::before{
+  animation:1s cubic-bezier(0.215, 0.61, 0.355, 1) open_left both;
+}
+.c-guide.is-active .c-guide_title::after{
+  animation:1s cubic-bezier(0.215, 0.61, 0.355, 1) open_right both;
+}
+@keyframes open_left{
+  0%{ left: 50%;}
+  100%{ left: 0; }
+}
+@keyframes open_right{
+  0%{ right: 50%;}
+  100%{ right: 1px; }
+}
+@keyframes open_guide{
+  0%{ clip-path: inset(0 99px 0 99px);}
+  100%{ clip-path: inset(0 0 0 0); }
+}
+@keyframes guide_shadow{
+  0%{ box-shadow: 20px 18px transparent;}
+  70%{ box-shadow: 20px 18px transparent;}
+  100%{ box-shadow: 20px 18px #FFF967; }
+}
+.c-logoanim_text{
+  position: absolute;
+  top: 8%;
+  left: 48%;
+  transform: translate(-50%,-50%);
+  width: inherit;
+  transform-origin: 50% 160%;
+  animation:30s linear infinite rotation1;
+}
+.c-logoanim_pic{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: inherit;
+}
+@keyframes rotation1{
+  0%{ transform:translate(-50%,-50%) rotate(0);}
+  100%{ transform:translate(-50%,-50%) rotate(360deg); }
+}
+.c-top_h2{
+  color: var(--font-main-color);
+  display: block;
+  position: relative;
+  height: 5rem;
+}
+.c-top_h2_eng{
+  display: inline-block;
+  position: absolute;
+  font-family: "Ephesis", "Helvetica Neue", cursive, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 85px;
+  color: var(--main-color);
+  transform-origin: center;
+  transform: rotate(0);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+.c-top_h2.is-active .c-top_h2_eng{
+  transform: rotate(-9.77deg);
+}
+.c-top_h2 .c-text_split{
+  display: flex;
+  position: absolute;
+  top: 2.6rem;
+  left: 3rem;
+  overflow: hidden;
+}
+.c-top_h2 .is-text-each{
+  display: block;
+  transform: translateY(105%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+.c-top_h2.is-active .is-text-each{
+  transform: translateY(0);
+}
+
+.c-text_w_line .line{
+  display: inline-block;
+  max-width: 100%;
+  background-color: var(--white-color);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path cubic-bezier(0.215, 0.61, 0.355, 1) 1.2s;
+  margin-bottom: .6rem;
+}
+.is-active .c-text_w_line .line{
+  clip-path: inset(0 0 0 0);
+  transition: clip-path cubic-bezier(0.215, 0.61, 0.355, 1) 1.2s;
+}
+.c-text_w_line .is-text-each{
+  display: inline-block;
+  opacity: 0;
+  transition: opacity linear 0.3s;
+}
+.is-active .c-text_w_line .is-text-each{
+  opacity: 1;
+}
+/* Object/Project */
+
+.p-logoanim_300{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 100px auto 60px;
+}
+
+/* Object/Utility */
+.u-accessibility{
+  position: absolute;
+  display: block;
+  clip-path: inset(100%);
+  width: 1px;
+  height: 1px;
+}
