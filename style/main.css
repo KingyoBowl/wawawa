@@ -1,3 +1,5 @@
+
+
 /* Foundation */
 @font-face {
   font-family: "Zen Maru Gothic";
@@ -109,6 +111,109 @@ p{
 .l-max800{
   margin-top: 2rem;
   max-width: 800px;
+}
+
+/* Navigation
+--------------------------------------------- */
+.main-navigation {
+	display: block;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation  ul li::before{
+  content: "";
+}
+.main-navigation  a{
+  border: none;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main
+.posts-navigation,
+.site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+}
+
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
 }
 
 /* Object/Component */
@@ -339,13 +444,51 @@ p{
 .is-active .c-text_w_line .is-text-each{
   opacity: 1;
 }
+/* navi */
+.c-flex{
+  display: flex;
+  justify-content:space-between;
+}
+.c-width_100{
+  width: 100%;
+}
+
 /* Object/Project */
+
+.p-navi_logo{
+  background-color: var(--white-color);
+  height: 100%;
+  width: fit-content;
+  clip-path: inset(0 0 0 0 round 0 0 60px 0);
+}
+.p-navi{
+  background-color: var(--white-color);
+  width: 100%;
+}
+.p-navi_ander{
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+.p-navi_ander::before{
+  position: absolute;
+  top:0;
+  left: 0;
+  content: url("../img/kado.svg");
+}
 
 .p-logoanim_300{
   position: relative;
   width: 300px;
   height: 300px;
   margin: 100px auto 60px;
+}
+.p-logoanim_128{
+  position: relative;
+  width: 128px;
+  height: 128px;
+  /* margin: 100px auto 60px; */
 }
 
 /* Object/Utility */
