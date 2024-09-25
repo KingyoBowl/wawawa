@@ -119,21 +119,18 @@ p{
 	display: block;
 	width: 100%;
 }
-
 .main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
-
 .main-navigation  ul li::before{
   content: "";
 }
 .main-navigation  a{
   border: none;
 }
-
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
@@ -142,34 +139,61 @@ p{
 	left: -999em;
 	z-index: 99999;
 }
-
 .main-navigation ul ul ul {
 	left: -999em;
 	top: 0;
 }
-
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
 	display: block;
 	left: auto;
 }
-
 .main-navigation ul ul a {
 	width: 200px;
 }
-
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
 	left: auto;
 }
-
 .main-navigation li {
 	position: relative;
 }
-
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+  padding: 1rem;
+}
+.main-navigation a span{
+  text-align: center;
+	display: block;
+	text-decoration: none;
+}
+.main-navigation a .p-link_text{
+
+}
+.main-navigation a .p-link_subtext{
+  color: var(--main-color);
+  font-size: .8rem;
+  transition: .4s;
+}
+@media (any-hover: hover) {
+  .main-navigation a:hover .p-link_subtext{
+    color: var(--accent-color);
+    transition: .2s;
+  }
+}
+.p-header{
+  position: sticky;
+}
+.p-navi{
+  background-color: var(--white-color);
+  width: 100%;
+}
+.p-navi_ander{
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
 }
 
 /* Small menu. */
@@ -178,14 +202,33 @@ p{
 	display: block;
 }
 
+.p-navi_logo{
+  display: none;
+}
 @media screen and (min-width: 37.5em) {
 
+  .p-navi_ander::before{
+    position: absolute;
+    top:0;
+    left: 0;
+    content: url("../img/kado.svg");
+  }
+  .p-navi_logo{
+    display: block;
+    background-color: var(--white-color);
+    height: 100%;
+    min-height: 200px;
+    width: fit-content;
+    min-width: 180px;
+    clip-path: inset(0 0 0 0 round 0 0 60px 0);
+  }
 	.menu-toggle {
 		display: none;
 	}
 
 	.main-navigation ul {
 		display: flex;
+    justify-content: right;
 	}
 }
 
@@ -455,29 +498,6 @@ p{
 
 /* Object/Project */
 
-.p-navi_logo{
-  background-color: var(--white-color);
-  height: 100%;
-  width: fit-content;
-  clip-path: inset(0 0 0 0 round 0 0 60px 0);
-}
-.p-navi{
-  background-color: var(--white-color);
-  width: 100%;
-}
-.p-navi_ander{
-  position: relative;
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-}
-.p-navi_ander::before{
-  position: absolute;
-  top:0;
-  left: 0;
-  content: url("../img/kado.svg");
-}
-
 .p-logoanim_300{
   position: relative;
   width: 300px;
@@ -488,7 +508,7 @@ p{
   position: relative;
   width: 128px;
   height: 128px;
-  /* margin: 100px auto 60px; */
+  margin: 1rem auto 1rem;
 }
 
 /* Object/Utility */
