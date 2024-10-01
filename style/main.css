@@ -1,4 +1,50 @@
+.image-with-loader {
+  position: relative;
+  display: block;
+  width: 100%; /* 親要素の幅に従う */
+  height: auto; /* アスペクト比を維持 */
+  background-color: #e0e0e0; /* プレースホルダーの背景色 */
+  object-fit: cover; /* 画像をコンテナ内でフィットさせる */
+  border-radius: 50px;
+}
+.image-with-loader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0; /* プレースホルダーの背景色 */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.image-with-loader::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.image-with-loader.loaded::before,
+.image-with-loader.loaded::after {
+  display: none; /* 読み込み完了後にプレースホルダーとローダーを非表示に */
+}
 
 /* Foundation */
 @font-face {
@@ -27,6 +73,7 @@ body{
   font-size: 18px;
   color: var(--font-main-color);
 }
+
 .title_font{
   font-family: "Ephesis", "Helvetica Neue", cursive, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
   font-weight: 400;
@@ -103,6 +150,12 @@ p{
 }
 .l-margin_top_2rem{
   margin-top: 2rem;
+}
+.l-padding_top{
+  padding-top: 80px;
+}
+.l-padding_top_2rem{
+  padding-top: 2rem;
 }
 .l-max500{
   margin-top: 2rem;
@@ -225,7 +278,6 @@ p{
 	.menu-toggle {
 		display: none;
 	}
-
 	.main-navigation ul {
 		display: flex;
     justify-content: right;
@@ -433,30 +485,35 @@ p{
 .c-top_h2{
   color: var(--font-main-color);
   display: block;
+  width: 100%;
   position: relative;
   height: 5rem;
+  margin: 0 auto;
 }
 .c-top_h2_eng{
   display: inline-block;
   position: absolute;
+  top: 0;
+  left: calc(50% - 2rem);
   font-family: "Ephesis", "Helvetica Neue", cursive, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 85px;
   color: var(--main-color);
   transform-origin: center;
-  transform: rotate(0);
+  transform: rotate(0) translateX(-50%);
   transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
 }
 .c-top_h2.is-active .c-top_h2_eng{
-  transform: rotate(-9.77deg);
+  transform: rotate(-9.77deg) translateX(-50%);
 }
 .c-top_h2 .c-text_split{
   display: flex;
   position: absolute;
-  top: 2.6rem;
-  left: 3rem;
+  top: 3.2rem;
+  left: calc(50% + 2rem);
   overflow: hidden;
+  transform: translateX(-50%);
 }
 .c-top_h2 .is-text-each{
   display: block;
@@ -510,7 +567,56 @@ p{
   height: 128px;
   margin: 1rem auto 1rem;
 }
-
+.p-top_navi_logo{
+  display: none;
+}
+@media screen and (min-width: 37.5em) {
+.p-top_section{
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.p-banner_wrap{
+  display: flex;
+  justify-content: center;
+}
+.p-banner{
+  display: block;
+  border: none;
+}
+.p-banner:hover{
+  border: none;
+}
+.p-top_navi_logo{
+  display: block;
+}
+.p-top_image_wrap{
+  display: block;
+  border-bottom-right-radius: 150px;
+}
+.p-top_image{
+  width: calc(100% - 600px);
+  max-width: 1450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 0;
+}
+.p-top-navi{
+  padding: 2rem;
+  padding-top: 1rem;
+  max-width: calc(200px + 2rem);
+  position:fixed;
+  right: 3.4rem;
+  top: 3rem;
+  border-radius: 150px;
+}
+.p-top-navi .main-navigation ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+}
 /* Object/Utility */
 .u-accessibility{
   position: absolute;

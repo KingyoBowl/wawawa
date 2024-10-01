@@ -109,3 +109,13 @@ textElements.forEach(textOneByOne => {
   targets.forEach(target => {
       observer.observe(target);
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.image-with-loader');
+    
+    images.forEach(image => {
+      image.addEventListener('load', () => {
+        image.classList.add('loaded'); // 画像が読み込まれたらクラスを追加
+      });
+    });
+  });
