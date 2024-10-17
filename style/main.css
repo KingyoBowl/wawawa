@@ -3,7 +3,7 @@
   display: block;
   width: 100%; /* 親要素の幅に従う */
   height: 70vh; /* アスペクト比を維持 */
-  background-color: #e0e0e0; /* プレースホルダーの背景色 */
+  background-color: var(--font-sub-color); /* プレースホルダーの背景色 */
   -o-object-fit: cover;
      object-fit: cover; /* 画像をコンテナ内でフィットさせる */
   border-radius: 50px;
@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e0e0e0; /* プレースホルダーの背景色 */
+  background-color: var(--font-sub-color); /* プレースホルダーの背景色 */
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -29,8 +29,8 @@
   left: 50%;
   width: 40px;
   height: 40px;
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
+  border: 4px solid var(--font-sub-color);
+  border-top: 4px solid var(--accent-color);
   border-radius: 50%;
   -webkit-animation: spin 1s linear infinite;
           animation: spin 1s linear infinite;
@@ -174,8 +174,8 @@ footer{
   width: 128px;
   height: 128px;
   margin-top: 1rem;
-  margin-left: 20px;
-  margin-bottom: 1rem;
+  margin-left: 24px;
+  margin-bottom: 2rem;
   margin-right: auto;
 }
 .l-text_left{
@@ -256,6 +256,9 @@ footer{
 .l-flex{
   display: flex;
   justify-content: center;
+}
+.l-fadein{
+  transition:all 1s ease-in-out;
 }
 @media screen and (min-width: 36.5em) {
   .l-page_title_h1{
@@ -1038,7 +1041,7 @@ footer{
   -webkit-animation-delay: .9s;
           animation-delay: .9s;
 }
-.p-mask_1{
+/* .p-mask_1{
   -webkit-mask-image: url('/style/mask/mask_1.svg');
   mask-image: url('/style/mask/mask_1.svg');
   -webkit-mask-repeat: no-repeat;
@@ -1077,7 +1080,7 @@ footer{
           mask-position: center;
   -webkit-mask-size: contain;
           mask-size: contain;
-}
+} */
 @-webkit-keyframes fadeIn_left {
   from {
     opacity: 0;
